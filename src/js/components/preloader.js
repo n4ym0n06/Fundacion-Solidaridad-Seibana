@@ -1,0 +1,15 @@
+// ============================================================================
+// PRELOADER
+// ============================================================================
+
+export function initPreloader() {
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        setTimeout(function() {
+            preloader.style.opacity = '0';
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 800);
+        }, 1500);
+    });
+}

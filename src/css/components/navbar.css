@@ -1,0 +1,367 @@
+/* ==========================================================================
+   NAVEGACIÓN - MODIFICADA SEGÚN SOLICITUD
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    z-index: var(--z-modal);
+    padding: var(--spacing-sm) 0;
+    transition: all var(--transition);
+    overflow: visible; /* Importante para que el dropdown no se corte */
+}
+
+.navbar.scrolled {
+    padding: var(--spacing-xs) 0;
+    box-shadow: var(--shadow-md);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    gap: var(--spacing-md);
+    overflow: visible; /* Importante para que el dropdown no se corte */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    text-decoration: none;
+    z-index: 5;
+    flex-shrink: 0;
+}
+
+.logo-icon {
+    width: 50px;
+    height: 50px;
+    color: var(--color-white);
+    border-radius: var(--border-radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--fs-xl);
+    flex-shrink: 0;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: var(--fs-sm);
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.logo-subtitle {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: var(--fs-base);
+    color: var(--color-gray-dark);
+    line-height: 1.2;
+}
+
+.mobile-menu-btn {
+    display: none;
+    font-size: var(--fs-xl);
+    color: var(--color-gray-dark);
+    background: none;
+    border: none;
+    padding: var(--spacing-xs);
+    z-index: 5;
+    flex-shrink: 0;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: flex-end;
+}
+
+.nav-list {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-sm);
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link, .dropdown-btn {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--color-gray-dark);
+    text-decoration: none;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    transition: all var(--transition);
+    background: none;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    position: relative;
+    white-space: nowrap;
+    font-size: var(--fs-sm);
+}
+
+.nav-link:hover, .nav-link:focus,
+.dropdown-btn:hover, .dropdown-btn:focus {
+    color: var(--color-primary);
+    background-color: var(--color-gray-light);
+    text-decoration: none;
+}
+
+.nav-link.active {
+    color: var(--color-primary);
+    background-color: var(--color-accent);
+}
+
+/* MEGA-DROPDOWN: ancho, centrado y estable */
+.mega-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;                 /* importante para ocupar todo el ancho del viewport del nav */
+    width: 100%;
+    background-color: var(--color-white);
+    box-shadow: var(--shadow-lg);
+    border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all var(--transition) cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: var(--z-dropdown);
+    pointer-events: none;
+    max-height: 0;
+    overflow: hidden;
+}
+
+/* estado visible (hover o abierto por script) */
+.mega-dropdown.open,
+.obras-dropdown:hover .mega-dropdown,
+.obras-dropdown:focus-within .mega-dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    max-height: 75vh;
+    pointer-events: all;
+    overflow: auto;
+}
+
+/* Contenedor interno centrado y con ancho máximo para evitar que el dropdown estire demasiado */
+.dropdown-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    display: grid;
+    grid-template-columns: 300px 1fr; /* columna de categorías + contenido */
+    gap: var(--spacing-lg);
+    align-items: start;
+    min-height: 300px;
+}
+
+/* Asegurar que el handle del hover no genere líneas finas */
+.mega-dropdown::before {
+    content: '';
+    display: block;
+    height: 6px;
+    width: 100%;
+}
+
+.dropdown-header {
+    margin-bottom: var(--spacing-md);
+}
+
+.dropdown-header h3 {
+    margin-bottom: var(--spacing-sm);
+    color: var(--color-primary);
+    font-size: var(--fs-lg);
+}
+
+.dropdown-header p {
+    color: var(--color-gray);
+    font-size: var(--fs-sm);
+    margin-bottom: 0;
+}
+
+/* Ajustes para que la columna de categorías tenga scroll si hay muchas */
+.dropdown-categories {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-right: 8px;
+}
+
+.dropdown-categories::-webkit-scrollbar {
+    width: 4px;
+}
+
+.dropdown-categories::-webkit-scrollbar-track {
+    background: var(--color-gray-light);
+    border-radius: 2px;
+}
+
+.dropdown-categories::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 2px;
+}
+
+.category-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    text-align: left;
+    background-color: var(--color-gray-light);
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    color: var(--color-gray-dark);
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    cursor: pointer;
+    font-size: var(--fs-sm);
+}
+
+.category-btn:hover, .category-btn:focus, .category-btn.active {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    transform: translateX(5px);
+}
+
+.category-icon {
+    font-size: var(--fs-md);
+    width: 20px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+/* Ajustes para la previsualización de proyectos */
+.dropdown-projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: var(--spacing-md);
+    max-height: 60vh;
+    overflow-y: auto;
+    align-content: start;
+    padding-right: 8px;
+}
+
+.dropdown-projects::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-projects::-webkit-scrollbar-track {
+    background: var(--color-gray-light);
+    border-radius: 3px;
+}
+
+.dropdown-projects::-webkit-scrollbar-thumb {
+    background: var(--color-primary);
+    border-radius: 3px;
+}
+
+.project-preview {
+    background-color: var(--color-gray-light);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: all var(--transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+    max-height: 250px;
+}
+
+.project-preview:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+.preview-image {
+    height: 120px;
+    overflow: hidden;
+    background-color: var(--color-accent);
+}
+
+.preview-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.project-preview:hover .preview-image img {
+    transform: scale(1.05);
+}
+
+.preview-content {
+    padding: var(--spacing-md);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-title {
+    font-size: var(--fs-sm);
+    font-weight: 600;
+    margin-bottom: var(--spacing-xs);
+    color: var(--color-gray-dark);
+    line-height: 1.3;
+}
+
+.preview-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: var(--fs-xs);
+    color: var(--color-gray);
+    margin-top: auto;
+}
+
+.badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: var(--fs-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.badge.before {
+    background-color: var(--color-warning);
+    color: var(--color-black);
+}
+
+.badge.after {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.dropdown-footer {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid var(--color-accent-dark);
+    margin-top: var(--spacing-md);
+}
+
+.nav-cta {
+    margin-left: var(--spacing-sm);
+    flex-shrink: 0;
+}

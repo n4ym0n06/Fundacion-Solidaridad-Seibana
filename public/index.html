@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundación Solidaridad Seibana</title>
+    <meta name="description" content="Organización sin fines de lucro dedicada a la construcción de viviendas y ayuda humanitaria en comunidades necesitadas.">
+    
+    <!-- Preconexión para fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="../src/assets/images/logo.png">
+    
+    <!-- CSS principal -->
+    <link rel="stylesheet" href="../src/css/main.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="loader"></div>
+        <div class="preloader-text">Solidaridad Seibana</div>
+    </div>
+
+    <!-- Navegación principal - MODIFICADA -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="container nav-container">
+            <!-- Logo -->
+            <a href="index.html" class="logo" aria-label="Volver al inicio">
+                <div class="logo-icon">
+                    <img src="../src/assets/images/logo.png" alt="Logo de la Fundación Solidaridad Seibana" class="logo-img">
+                </div>
+                <div class="logo-text">
+                    <span class="logo-title">Fundación</span>
+                    <span class="logo-subtitle">Solidaridad Seibana</span>
+                </div>
+            </a>
+            
+            <!-- Menú para móviles -->
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Navegación -->
+            <div class="nav-menu" id="navMenu">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#inicio" class="nav-link active">Inicio</a></li>
+                    <li class="nav-item"><a href="#mision" class="nav-link">Misión</a></li>
+                    <li class="nav-item"><a href="#equipo" class="nav-link">Equipo</a></li>
+                    
+                    <!-- MODIFICADO: Obras Realizadas con dropdown -->
+                    <li class="nav-item obras-dropdown" id="obrasDropdown">
+                        <!-- Cambié button por <a> para que el click funcione como ancla -->
+                        <a href="#obras" class="nav-link dropdown-btn" id="obrasLink" aria-expanded="false" aria-haspopup="true" aria-controls="megaDropdown">
+                            Obras Realizadas <i class="fas fa-chevron-down" aria-hidden="true"></i>
+                        </a>
+
+                        <!-- Mega-dropdown ancho, centrado y con scroll interno -->
+                        <div class="mega-dropdown" id="megaDropdown" role="menu" aria-labelledby="obrasLink">
+                            <div class="dropdown-content">
+                                <div class="dropdown-header">
+                                    <h3>Obras Realizadas</h3>
+                                    <p>Filtra por categoría para ver nuestras obras (Construcción de Casas, Operativo de Alimentos, Entrega de Camas, Kermés, Tarde recreativa con niños).</p>
+                                </div>
+
+                                <div class="dropdown-categories" id="categoriesContainer">
+                                    <!-- Categorías (botones) se cargan dinámicamente desde JS -->
+                                </div>
+
+                                <div class="dropdown-projects" id="projectsPreview" aria-live="polite">
+                                    <!-- Previsualización de proyectos se cargará dinámicamente -->
+                                </div>
+
+                                <div class="dropdown-footer">
+                                    <a href="#obras" class="btn btn-secondary" id="viewAllProjects">Ver todas las obras</a>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li class="nav-item"><a href="#galeria" class="nav-link">Galería</a></li>
+                    <li class="nav-item"><a href="#donaciones" class="nav-link">Donaciones</a></li>
+                    <li class="nav-item"><a href="#asesoria" class="nav-link">Asesoría</a></li>
+                    <li class="nav-item"><a href="#contacto" class="nav-link">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <!-- CTA Donar -->
+            <div class="nav-cta">
+                <a href="#donaciones" class="btn btn-primary">Donar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section con slider automático -->
+    <section id="inicio" class="hero" role="banner" aria-label="Sección principal">
+        <div class="hero-slider" id="heroSlider">
+            <!-- Las imágenes del hero se cargarán dinámicamente desde JS -->
+            <div class="hero-slide active" role="img" aria-label="Familia recibiendo llaves de su nueva casa">
+                <div class="slide-overlay"></div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Construyendo Hogares, <span class="highlight">Transformando Vidas</span></h1>
+                <p class="hero-subtitle">Desde 2010, hemos ayudado a más de 500 familias a tener un lugar digno donde vivir y crecer con esperanza.</p>
+                <div class="hero-buttons">
+                    <a href="#donaciones" class="btn btn-primary btn-large">Hacer una Donación</a>
+                    <a href="#obras" class="btn btn-secondary btn-large">Ver Nuestras Obras</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Indicadores del slider -->
+        <div class="hero-indicators" aria-hidden="true">
+            <span class="indicator active" data-slide="0" aria-label="Diapositiva 1"></span>
+            <span class="indicator" data-slide="1" aria-label="Diapositiva 2"></span>
+            <span class="indicator" data-slide="2" aria-label="Diapositiva 3"></span>
+            <span class="indicator" data-slide="3" aria-label="Diapositiva 4"></span>
+        </div>
+    </section>
+
+    <!-- Sección Misión -->
+    <section id="mision" class="section mission-section" aria-labelledby="misionTitle">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="misionTitle" class="section-title">Nuestra Misión</h2>
+                <p class="section-subtitle">Conoce nuestra razón de ser y los valores que nos guían</p>
+            </div>
+            
+            <div class="mission-content">
+                <div class="mission-text slide-in-left">
+                    <h3>Fundación Solidaridad Seibana</h3>
+                    <p>Tenemos como misión fundamental brindar apoyo integral a personas con dificultades de salud, económicas, de alimentación y otros aspectos que no pueden resolver con sus propios recursos o habilidades.</p>
+                    <p>Desde nuestra fundación el <strong>22 de agosto de 2022</strong>, hemos trabajado incansablemente para mejorar la calidad de vida de quienes más lo necesitan en nuestra comunidad, actuando con transparencia, compromiso y profundo respeto por la dignidad humana.</p>
+                    <p>Creemos firmemente que cada persona merece una oportunidad para vivir con plenitud, y trabajamos para proporcionar apoyo tangible en momentos de necesidad crítica.</p>
+                    
+                    <div class="foundation-info">
+                        <div class="info-item fade-in">
+                            <div class="info-number">22</div>
+                            <div class="info-text">Agosto 2022<br>Fecha de Fundación</div>
+                        </div>
+                        <div class="info-item fade-in">
+                            <div class="info-number">430</div>
+                            <div class="info-text">RNC<br>430-38146-2</div>
+                        </div>
+                        <div class="info-item fade-in">
+                            <div class="info-number">100%</div>
+                            <div class="info-text">Comprometidos<br>con la Solidaridad</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mission-image slide-in-right">
+                    <img src="../src/assets/images/476092360_2422888868071932_7521579303721710678_n.jpg" alt="Fundación Solidaridad Seibana" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Equipo -->
+    <section id="equipo" class="section team-section" aria-labelledby="equipoTitle">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="equipoTitle" class="section-title">Nuestro Equipo Directivo</h2>
+                <p class="section-subtitle">Conoce a las personas que lideran nuestra fundación</p>
+            </div>
+            
+            <div class="team-grid">
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3>Evangelista Mota</h3>
+                        <div class="team-position">Presidente</div>
+                        <p>Lidera nuestra organización con compromiso inquebrantable y dedicación profunda hacia los más necesitados.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3>Francisco Rijo</h3>
+                        <div class="team-position">Vice-presidente</div>
+                        <p>Apoya en la dirección estratégica y operativa de la fundación con visión y experiencia.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3>Juana Contreras</h3>
+                        <div class="team-position">Tesorera</div>
+                        <p>Gestiona los recursos de la fundación con máxima transparencia y responsabilidad fiduciaria.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3>Nuris Severino</h3>
+                        <div class="team-position">Secretaria</div>
+                        <p>Coordina la documentación y comunicación institucional con precisión y dedicación.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3>Marino Gil</h3>
+                        <div class="team-position">Vocal</div>
+                        <p>Contribuye con su valiosa experiencia en la toma de decisiones estratégicas.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3>Alquimedes Peguero</h3>
+                        <div class="team-position">Vocal</div>
+                        <p>Participa activamente en el desarrollo e implementación de iniciativas comunitarias.</p>
+                    </div>
+                </div>
+                
+                <div class="team-card fade-in">
+                    <div class="team-image">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="team-content">
+                        <h3>Elvita Reyna</h3>
+                        <div class="team-position">Vocal</div>
+                        <p>Colabora en el diseño y ejecución de proyectos de impacto social y comunitario.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Obras realizadas - ID MODIFICADO a #obras -->
+    <section id="obras" class="section obras-section" aria-labelledby="obrasTitle">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="obrasTitle" class="section-title">Obras Realizadas</h2>
+                <p class="section-subtitle">Explora nuestros proyectos y el impacto que hemos logrado en comunidades necesitadas.</p>
+            </div>
+            
+            <!-- Filtros de categorías -->
+            <div class="category-filters" id="categoryFilters" role="tablist" aria-label="Filtrar proyectos por categoría">
+                <!-- Los filtros se cargarán dinámicamente desde JS -->
+            </div>
+            
+            <!-- Grid de proyectos -->
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Los proyectos se cargarán dinámicamente desde JS -->
+            </div>
+            
+            <!-- Controles de paginación -->
+            <div class="pagination-controls" id="paginationControls">
+                <button class="btn btn-secondary" id="loadMoreProjects">Cargar más proyectos</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Galería -->
+    <section id="galeria" class="section gallery-section" aria-labelledby="galeriaTitle">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="galeriaTitle" class="section-title">Nuestra Galería</h2>
+                <p class="section-subtitle">Momentos que capturan nuestra labor y compromiso</p>
+            </div>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1542810634-71277d95dcbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Actividad comunitaria" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Actividad comunitaria</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Voluntarios en acción" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Voluntarios en acción</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1529312266912-b33cfce2eefd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1471&q=80" alt="Evento benéfico" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Evento benéfico</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Entrega de donaciones" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Entrega de donaciones</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1576765608535-5c04b5bd5389?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Reunión de equipo" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Reunión de equipo</p>
+                    </div>
+                </div>
+                <div class="gallery-item fade-in">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Trabajo en comunidad" loading="lazy">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                        <p>Trabajo en comunidad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para detalles del proyecto -->
+    <div class="modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="modalClose" aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-content" id="modalContent">
+                <!-- El contenido se cargará dinámicamente desde JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Donaciones -->
+    <section id="donaciones" class="section donation-section" aria-labelledby="donacionesTitle">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="donacionesTitle" class="section-title">Haz tu Donación</h2>
+                <p class="section-subtitle">Tu contribución nos permite continuar con nuestra labor de transformar vidas y construir esperanza.</p>
+            </div>
+            
+            <div class="donation-container">
+                <div class="donation-options">
+                    <h3>Selecciona un monto</h3>
+                    
+                    <div class="donation-amounts" role="radiogroup" aria-labelledby="amountOptionsTitle">
+                        <span id="amountOptionsTitle" class="visually-hidden">Opciones de monto de donación</span>
+                        <button class="amount-option" data-amount="500" aria-label="Donar 500 pesos dominicanos">RD$500</button>
+                        <button class="amount-option" data-amount="1000" aria-label="Donar 1000 pesos dominicanos">RD$1,000</button>
+                        <button class="amount-option" data-amount="2500" aria-label="Donar 2500 pesos dominicanos">RD$2,500</button>
+                        <button class="amount-option" data-amount="5000" aria-label="Donar 5000 pesos dominicanos">RD$5,000</button>
+                    </div>
+                    
+                    <div class="custom-amount">
+                        <label for="customAmountInput" class="custom-amount-label">O personaliza tu monto:</label>
+                        <div class="custom-amount-input">
+                            <span class="currency">RD$</span>
+                            <input 
+                                type="number" 
+                                id="customAmountInput" 
+                                min="50" 
+                                step="50" 
+                                placeholder="Escribe el monto"
+                                aria-label="Monto personalizado de donación en pesos dominicanos"
+                            >
+                        </div>
+                        <p class="amount-note">Mínimo RD$50. No se aceptan montos negativos.</p>
+                    </div>
+                    
+                    <!-- CTA de donación dinámico -->
+                    <button class="donation-cta" id="donateCTA" aria-label="Donar ahora">
+                        <span>Donar </span>
+                        <span id="donationAmount">RD$500</span>
+                    </button>
+                </div>
+                
+                <div class="donation-info">
+                    <h3>¿A dónde va tu donación?</h3>
+                    <ul class="donation-benefits">
+                        <li><i class="fas fa-check-circle"></i> <strong>Materiales de construcción:</strong> Bloques, cemento, varillas, techos.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Ayuda alimentaria:</strong> Paquetes de comida para familias en extrema necesidad.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Mobiliario básico:</strong> Camas, colchones y muebles esenciales.</li>
+                        <li><i class="fas fa-check-circle"></i> <strong>Actividades recreativas:</strong> Kermés y tardes de diversión para niños.</li>
+                    </ul>
+                    
+                    <div class="donation-stats">
+                        <div class="stat">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Casas construidas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">500+</span>
+                            <span class="stat-label">Familias beneficiadas</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">100%</span>
+                            <span class="stat-label">Transparencia</span>
+                        </div>
+                    </div>
+                    
+                    <div class="bank-info" style="margin-top: var(--spacing-xl); padding: var(--spacing-lg); background-color: var(--color-accent); border-radius: var(--border-radius); border-left: 5px solid var(--color-primary);">
+                        <h4 style="color: var(--color-primary); margin-bottom: var(--spacing-md);">Datos para Donaciones</h4>
+                        <p><strong>Banco:</strong> Banreservas</p>
+                        <p><strong>Tipo de cuenta:</strong> Cuenta de ahorros</p>
+                        <p><strong>Número:</strong> 09606566630</p>
+                        <p><strong>Titular:</strong> Fundación Solidaridad Seibana</p>
+                        <p><strong>RNC:</strong> 430-38146-2</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal de confirmación de donación -->
+    <div class="modal" id="donationModal" role="dialog" aria-modal="true" aria-labelledby="donationModalTitle" aria-hidden="true">
+        <div class="modal-overlay" id="donationModalOverlay"></div>
+        <div class="modal-container small-modal">
+            <button class="modal-close" id="donationModalClose" aria-label="Cerrar modal">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-content">
+                <div class="donation-confirmation">
+                    <div class="confirmation-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 id="donationModalTitle" class="confirmation-title">¡Gracias por tu donación!</h3>
+                    <p class="confirmation-text">Tu generosidad nos permite continuar con nuestra labor.</p>
+                    
+                    <div class="donation-summary">
+                        <h4>Resumen de tu donación</h4>
+                        <div class="summary-item">
+                            <span>Monto:</span>
+                            <strong id="summaryAmount">RD$500</strong>
+                        </div>
+                        <div class="summary-item">
+                            <span>Método de pago:</span>
+                            <strong>Transferencia bancaria</strong>
+                        </div>
+                    </div>
+                    
+                    <div class="bank-details">
+                        <h4>Datos bancarios para transferencia:</h4>
+                        <ul>
+                            <li><strong>Banco:</strong> Banreservas</li>
+                            <li><strong>Cuenta:</strong> 09606566630</li>
+                            <li><strong>A nombre de:</strong> Fundación Solidaridad Seibana</li>
+                            <li><strong>Tipo de cuenta:</strong> Ahorros</li>
+                            <li><strong>RNC:</strong> 430-38146-2</li>
+                        </ul>
+                        <p class="bank-note">Por favor, envía el comprobante de transferencia a: juanmanuelfebles@gmail.com</p>
+                    </div>
+                    
+                    <div class="confirmation-buttons">
+                        <button class="btn btn-secondary" id="closeDonationModal">Cerrar</button>
+                        <button class="btn btn-primary" id="printSummary">Imprimir resumen</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección de Asesoría / Mensaje -->
+    <section id="asesoria" class="section advice-section" aria-labelledby="asesoriaTitle">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="asesoriaTitle" class="section-title">Asesoría y Colaboración</h2>
+                <p class="section-subtitle">Trabajamos en conjunto con comunidades, empresas y voluntarios para maximizar nuestro impacto.</p>
+            </div>
+            
+            <div class="advice-content">
+                <div class="advice-text">
+                    <h3>Fray Juan Manuel Febles</h3>
+                    <p><strong>Perfil:</strong> Sacerdote dominico con amplia trayectoria en trabajo social y comunitario.</p>
+                    <p><strong>Cargo:</strong> Asesor General y Enlace Nacional e Internacional.</p>
+                    
+                    <div class="functions-list" style="margin-top: var(--spacing-lg);">
+                        <h4 style="color: var(--color-primary-dark); margin-bottom: var(--spacing-md);">Funciones Principales:</h4>
+                        <ul style="list-style: none;">
+                            <li style="margin-bottom: var(--spacing-sm); padding-left: 0; position: relative; padding-left: var(--spacing-lg);">
+                                <strong>Órgano Consultivo:</strong> Asesoramiento especializado en la programación y ejecución de actividades para el cumplimiento de los fines fundacionales.
+                            </li>
+                            <li style="margin-bottom: var(--spacing-sm); padding-left: 0; position: relative; padding-left: var(--spacing-lg);">
+                                <strong>Conexión Estratégica:</strong> Gestión de convenios y hermanamientos con otras fundaciones, embajadas e instituciones nacionales e internacionales.
+                            </li>
+                            <li style="margin-bottom: var(--spacing-sm); padding-left: 0; position: relative; padding-left: var(--spacing-lg);">
+                                <strong>Orientación Espiritual:</strong> Acompañamiento y guía en los aspectos valóricos y éticos de la organización.
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Nota de JM integrada -->
+                    <div class="jm-note">
+                        <p><strong>Nota:</strong> "Esto dijo JM ayer" — integrado según solicitud.</p>
+                    </div>
+                    
+                    <div class="advice-contact">
+                        <a href="#contacto" class="btn btn-primary">Contactar para asesoría</a>
+                    </div>
+                </div>
+                
+                <div class="advice-image">
+                    <img src="../src/assets/images/JM.png" alt="Fray Juan Manuel Febles - Asesor General" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section id="contacto" class="section contact-section" aria-labelledby="contactoTitle">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="contactoTitle" class="section-title">Contáctanos</h2>
+                <p class="section-subtitle">¿Tienes preguntas o quieres unirte a nuestra causa? Estamos aquí para ayudarte.</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de contacto</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Dirección</h4>
+                            <p>Calle Solidaridad #123, Colonia Seibana, República Dominicana</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Teléfono</h4>
+                            <p>+1 (809) 123-4567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Correo electrónico</h4>
+                            <p>juanmanuelfebles@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Horario de Atención</h4>
+                            <p>Lunes a Viernes: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <h4>Síguenos en redes sociales</h4>
+                        <div class="social-icons">
+                            <a href="#" aria-label="Facebook de Fundación Solidaridad Seibana"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="Instagram de Fundación Solidaridad Seibana"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="Twitter de Fundación Solidaridad Seibana"><i class="fab fa-twitter"></i></a>
+                            <a href="#" aria-label="YouTube de Fundación Solidaridad Seibana"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Envíanos un mensaje</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre completo *</label>
+                            <input type="text" id="name" name="name" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" required aria-required="true">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" name="subject">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje *</label>
+                            <textarea id="message" name="message" rows="5" required aria-required="true"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <img src="../src/assets/images/logo.png" alt="Logo Fundación Solidaridad Seibana" loading="lazy">
+                        </div>
+                        <div class="logo-text">
+                            <span class="logo-title">Fundación</span>
+                            <span class="logo-subtitle">Solidaridad Seibana</span>
+                        </div>
+                    </div>
+                    <p class="footer-description">Dando una mano amiga a personas con dificultades de salud, económicas, de alimentación y otros aspectos que no pudieran resolver con sus propios recursos o habilidades.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#mision">Nuestra Misión</a></li>
+                        <li><a href="#equipo">Nuestro Equipo</a></li>
+                        <li><a href="#obras">Obras realizadas</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#donaciones">Donaciones</a></li>
+                        <li><a href="#asesoria">Asesoría</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-projects">
+                    <h4>Información Legal</h4>
+                    <ul>
+                        <li><a href="#mision">Fecha de Fundación: 22 de agosto de 2022</a></li>
+                        <li><a href="#mision">RNC: 430-38146-2</a></li>
+                        <li><a href="#donaciones">Banco: Banreservas</a></li>
+                        <li><a href="#donaciones">Cuenta: 09606566630</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Suscríbete a nuestro boletín</h4>
+                    <p>Recibe actualizaciones sobre nuestros proyectos y campañas.</p>
+                    <form id="newsletterForm">
+                        <div class="newsletter-input">
+                            <input type="email" placeholder="Tu correo electrónico" aria-label="Correo electrónico para suscripción al boletín" required>
+                            <button type="submit" aria-label="Suscribirse"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fundación Solidaridad Seibana. Todos los derechos reservados.</p>
+                <p>Organización sin fines de lucro registrada bajo el RNC: 430-38146-2</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de volver arriba -->
+    <button class="back-to-top" aria-label="Volver arriba">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript principal -->
+    <script src="../src/js/main.js" type="module"></script>
+</body>
+</html>

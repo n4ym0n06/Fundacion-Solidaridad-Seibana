@@ -1,0 +1,503 @@
+/* ==========================================================================
+   ARCHIVO PRINCIPAL DE ESTILOS
+   ========================================================================== */
+
+/* Importar variables y reset */
+@import url('base/variables.css');
+@import url('base/reset.css');
+@import url('base/utilities.css');
+
+/* Importar componentes */
+@import url('components/preloader.css');
+@import url('components/navbar.css');
+@import url('components/hero.css');
+@import url('components/cards.css');
+@import url('components/modal.css');
+@import url('components/footer.css');
+/* Importar páginas */
+@import url('pages/mission.css');
+@import url('pages/team.css');
+@import url('pages/projects.css');
+@import url('pages/gallery.css');
+@import url('pages/donation.css');
+@import url('pages/advice.css');
+@import url('pages/contact.css');
+
+/* ==========================================================================
+   BOTÓN VOLVER ARRIBA
+   ========================================================================== */
+.back-to-top {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition);
+    z-index: 999;
+    box-shadow: 0 10px 25px rgba(139, 0, 0, 0.3);
+    font-size: 1.3rem;
+    border: none;
+}
+
+.back-to-top.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: linear-gradient(135deg, var(--color-primary-dark), #500000);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(139, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN
+   ========================================================================== */
+@media (max-width: 1200px) {
+    .dropdown-content {
+        grid-template-columns: 250px 1fr;
+        padding: var(--spacing-md);
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-content {
+        padding-right: 0;
+    }
+    
+    .hero-title {
+        font-size: var(--fs-3xl);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--fs-md);
+    }
+    
+    .dropdown-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-lg);
+        height: auto;
+        min-height: auto;
+    }
+    
+    .dropdown-projects {
+        max-height: 400px;
+    }
+    
+    .mission-content,
+    .donation-container,
+    .advice-content,
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+    }
+    
+    .donation-options {
+        position: static;
+    }
+    
+    .foundation-info {
+        flex-direction: column;
+    }
+    
+    .info-item::after {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: var(--spacing-xs) 0;
+    }
+    
+    .hero {
+        height: 80vh;
+        min-height: 500px;
+        margin-top: 60px;
+    }
+    
+    .hero-title {
+        font-size: var(--fs-2xl);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--fs-base);
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .mobile-menu-btn {
+        display: block;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        padding: var(--spacing-lg);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all var(--transition);
+        z-index: var(--z-dropdown);
+        max-height: calc(100vh - 60px);
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+    }
+    
+    .nav-link, .dropdown-btn {
+        width: 100%;
+        padding: var(--spacing-md);
+        justify-content: space-between;
+        font-size: var(--fs-base);
+    }
+    
+    /* Mega dropdown en móvil */
+    .mega-dropdown {
+        position: static;
+        width: 100% !important;
+        max-width: 100% !important;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        max-height: 0;
+        box-shadow: none;
+        background-color: var(--color-gray-light);
+        margin-top: 0;
+        left: 0;
+        overflow: hidden;
+        transition: max-height var(--transition) ease;
+        border-radius: var(--border-radius);
+        padding: 0;
+    }
+    
+    .mega-dropdown.open {
+        max-height: 70vh;
+        overflow-y: auto;
+        margin-bottom: var(--spacing-md);
+    }
+    
+    .dropdown-content {
+        padding: var(--spacing-md);
+        height: auto;
+        display: block;
+        min-height: auto;
+        max-height: none;
+    }
+    
+    .dropdown-categories {
+        max-height: 30vh;
+        overflow-y: auto;
+        margin-bottom: var(--spacing-lg);
+        min-height: auto;
+    }
+    
+    .dropdown-projects {
+        max-height: 35vh;
+        grid-template-columns: 1fr;
+        overflow-y: auto;
+    }
+    
+    .obras-dropdown .nav-link.active::after {
+        content: '';
+        position: absolute;
+        right: var(--spacing-sm);
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 5px solid var(--color-primary);
+    }
+    
+    .nav-cta {
+        margin-left: 0;
+        margin-top: var(--spacing-lg);
+        width: 100%;
+    }
+    
+    .nav-cta .btn {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .section {
+        padding: var(--spacing-2xl) 0;
+    }
+    
+    .section-title {
+        font-size: var(--fs-2xl);
+    }
+    
+    .projects-grid,
+    .team-grid,
+    .gallery-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--spacing-lg);
+    }
+    
+    .donation-amounts {
+        grid-template-columns: 1fr;
+    }
+    
+    .donation-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--spacing-md);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .confirmation-buttons {
+        flex-direction: column;
+    }
+    
+    .modal-container {
+        width: 95%;
+        margin: var(--spacing-lg);
+    }
+    
+    .before-after-slider {
+        height: 300px;
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        right: 20px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .social-links {
+        margin-top: var(--spacing-xl);
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        height: 70vh;
+        min-height: 400px;
+    }
+    
+    .hero-title {
+        font-size: var(--fs-xl);
+    }
+    
+    .hero-subtitle {
+        font-size: var(--fs-sm);
+    }
+    
+    .section {
+        padding: var(--spacing-xl) 0;
+    }
+    
+    .modal-content {
+        padding: var(--spacing-xl) var(--spacing-md);
+    }
+    
+    .category-filters {
+        overflow-x: auto;
+        padding-bottom: var(--spacing-sm);
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    .category-filters::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .category-filters::-webkit-scrollbar-track {
+        background: var(--color-gray-light);
+    }
+    
+    .category-filters::-webkit-scrollbar-thumb {
+        background: var(--color-primary);
+        border-radius: 2px;
+    }
+    
+    .donation-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .impact-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .project-details {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-footer {
+        flex-direction: column;
+        gap: var(--spacing-md);
+    }
+    
+    .mission-section::before,
+    .team-section::before,
+    .gallery-section::before,
+    .advice-section::before {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .dropdown-content {
+        padding: var(--spacing-sm);
+    }
+    
+    .dropdown-categories {
+        max-height: 25vh;
+    }
+    
+    .dropdown-projects {
+        max-height: 30vh;
+    }
+}
+
+@media (max-width: 400px) {
+    .projects-grid,
+    .team-grid,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dropdown-projects {
+        grid-template-columns: 1fr;
+    }
+    
+    .donation-amounts {
+        grid-template-columns: 1fr;
+    }
+    
+    .dropdown-content {
+        padding: var(--spacing-xs);
+    }
+}
+
+/* ==========================================================================
+   ANIMACIONES Y EFECTOS EXTRAS
+   ========================================================================== */
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in-left {
+    animation: slideInLeft 0.5s ease-out;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease-out;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Efecto de carga suave */
+body.loaded .section {
+    animation: fadeIn 0.8s ease-out;
+}
+
+body.loaded .hero-content {
+    animation: slideInLeft 0.8s ease-out;
+}
+
+/* Efecto de scroll suave para secciones */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+}
+
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mejoras de accesibilidad para focus */
+*:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+*:focus:not(.focus-visible) {
+    outline: none;
+}
+
+/* Mejora de rendimiento para animaciones */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
