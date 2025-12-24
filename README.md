@@ -1,156 +1,101 @@
-# Fundación Solidaridad Seibana
+# 🏠 Fundación Solidaridad Seibana
 
-Sitio web oficial de la Fundación Solidaridad Seibana - Organización sin fines de lucro dedicada a la construcción de viviendas y ayuda humanitaria en comunidades necesitadas.
+<p align="center">
+  <img src="src/assets/images/logo.png" alt="Logo Fundación" width="150">
+  <br>
+  <b>Construyendo hogares, transformando vidas.</b>
+</p>
 
-## Estructura del Proyecto
+---
 
+### 🌟 Sobre el Proyecto
+Sitio web oficial de la **Fundación Solidaridad Seibana**, una organización sin fines de lucro dedicada a la construcción de viviendas dignas y ayuda humanitaria en comunidades vulnerables de la República Dominicana.
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black)
+
+* **Fuentes:** Google Fonts (Montserrat & Open Sans)
+* **Iconos:** Font Awesome
+* **Diseño:** Responsive (Mobile First)
+
+---
+
+## 📂 Estructura del Proyecto
+
+```text
 fundacion-solidaridad-seibana/
-│   README.md                    # Documentación principal
-│
-├───docs
-│       documentation.md         # Esta documentación técnica
-│
-├───public
-│       index.html               # Página principal HTML
-│
-└───src
-    ├───assets
-    │   └───images              # Recursos multimedia
-    │           logo.png
-    │           JM.png
-    │           476092360_2422888868071932_7521579303721710678_n.jpg
-    │           561318405_18021545162749726_4446628885319866297_n.jpg
-    │           581257718_18102041557662608_2472287848266837343_n.jpg
-    │           banreservas-920x500.webp
-    │           AQMG20mqPMn_wqgJR1NQtQclJXDCJIb7zV2bLEuS1symHfqNAemHZsjQaL9dJLHseAKgwKqHL3lyfU-GHFfDUdWml2mBe0s9.mp4
-    │           AQMs_9JgEdsJlpIST1Y6QuXlKQrjlZ9PFjx6uBl_QVejwq0vMZkqtp_faTM4UyAgdXcBzuBMPsdTlLKV77cRfKaqmWMjn07x.mp4
-    │
-    ├───css
-    │   │   main.css                    # Archivo CSS principal
-    │   │
-    │   ├───base                        # Estilos base y fundamentales
-    │   │       _variables.css          # Variables CSS globales
-    │   │       _reset.css              # Reset CSS y estilos base
-    │   │       _utilities.css          # Clases utilitarias
-    │   │
-    │   ├───components                  # Componentes reutilizables
-    │   │       _navbar.css             # Navegación principal
-    │   │       _hero.css               # Sección hero con slider
-    │   │       _cards.css              # Tarjetas (equipo, proyectos)
-    │   │       _modal.css              # Ventanas modales
-    │   │       _preloader.css          # Pantalla de carga inicial
-    │   │       _footer.css             # Pie de página
-    │   │
-    │   └───pages                       # Estilos específicos por sección
-    │           _mission.css            # Sección Misión
-    │           _team.css               # Sección Equipo
-    │           _projects.css           # Sección Obras Realizadas
-    │           _gallery.css            # Sección Galería
-    │           _donation.css           # Sección Donaciones
-    │           _advice.css             # Sección Asesoría
-    │           _contact.css            # Sección Contacto
-    │
-    ├───data                           # Datos y configuración
-    │       projects.js                # Datos de proyectos y configuración
-    │
-    └───js
-        │   main.js                    # Punto de entrada JavaScript
-        │
-        ├───components                 # Componentes JavaScript modulares
-        │       preloader.js           # Control del preloader
-        │       navigations.js         # Navegación y menús
-        │       hero-slider.js         # Slider automático del hero
-        │       projects.js            # Gestión de proyectos y filtros
-        │       modal.js               # Control de ventanas modales
-        │       donation.js            # Sistema de donaciones
-        │
-        └───pages                      # Lógica específica de páginas
-                home.js                # Funciones generales de la página
-                contact.js             # Formularios de contacto
+├── 📄 README.md                # Documentación principal
+├── 📂 docs/                   
+│   └── 📄 documentation.md     # Documentación técnica y guías
+├── 📂 public/
+│   └── 📄 index.html           # Página principal HTML
+└── 📂 src/
+    ├── 📂 assets/
+    │   └── 📂 images/          # Recursos multimedia
+    │       ├── 🖼 logo.png
+    │       ├── 🖼 JM.png
+    │       ├── 🖼 ..._n.jpg
+    │       └── 🎬 videos/
+    ├── 📂 css/
+    │   ├── 📄 main.css         # Punto de entrada de estilos
+    │   ├── 📂 base/            # Variables y resets
+    │   ├── 📂 components/      # UI Reutilizable (Navbar, Cards)
+    │   └── 📂 pages/           # Estilos específicos por sección
+    ├── 📂 data/
+    │   └── 📄 projects.js       # Base de datos local de obras
+    └── 📂 js/
+        ├── 📄 main.js           # Lógica principal
+        ├── 📂 components/      # Funcionalidad de componentes
+        └── 📂 pages/           # Lógica de páginas específicas
+```
 
+🚀 Características Principales
+✨ Diseño Moderno: Interfaz fluida y totalmente adaptable a móviles.
 
-## Características
+🏗 Portafolio de Obras: Mega dropdown y filtros dinámicos para explorar los proyectos realizados.
 
-- Diseño responsive y moderno
-- Navegación con mega dropdown para obras realizadas
-- Slider automático en la sección hero
-- Galería de proyectos con filtros por categoría
-- Sistema de donaciones con múltiples opciones
-- Formularios de contacto validados
-- Modales interactivos para detalles de proyectos
-- Preloader animado
-- Botón para volver arriba
+💳 Donaciones: Sistema integrado con múltiples canales de ayuda.
 
-## Tecnologías Utilizadas
+🎭 Interactividad: Modales detallados, sliders automáticos y preloader animado.
 
-- HTML5 semántico
-- CSS3 con variables CSS y Grid/Flexbox
-- JavaScript ES6+ (módulos)
-- Font Awesome para iconos
-- Google Fonts (Montserrat y Open Sans)
+📈 Optimización: Sin dependencias pesadas, carga rápida y código limpio.
 
-## Instalación y Uso
+💻 Instalación y Uso
+## Opción 1: Con Git (Recomendado)
+Bash
 
-# Opción 1: Clonar el proyecto con Git (recomendado)
+# Clona el repositorio
+git clone [https://github.com/TU_USUARIO/fundacion-solidaridad-seibana.git](https://github.com/TU_USUARIO/fundacion-solidaridad-seibana.git)
 
-- Asegúrate de tener Git instalado
-
-git --version
-
-
-- Clona el repositorio desde GitHub
-
-git clone https://github.com/TU_USUARIO/fundacion-solidaridad-seibana.git
-
-
-- Entra a la carpeta del proyecto
-
+# Entra al directorio
 cd fundacion-solidaridad-seibana
 
+# Abre el archivo principal
+open public/index.html
+## Opción 2: Descarga Directa
+Haz clic en el botón verde Code y selecciona Download ZIP.
 
-- Abre el archivo principal en tu navegador
+Extrae el contenido en tu carpeta preferida.
 
-public/index.html
+Haz doble clic en public/index.html para verlo en tu navegador.
 
+[!TIP] Sugerencia de desarrollo: Si usas VS Code, te recomendamos abrir el proyecto con la extensión Live Server para visualizar los cambios en tiempo real.
 
-- No se requiere servidor, compilación ni dependencias adicionales.
+📞 Contacto
+Si deseas colaborar o saber más sobre nuestra labor, no dudes en contactarnos:
 
-# Opción 2: Descargar desde GitHub (sin Git)
+📧 Email: juanmanuelfebles@gmail.com
 
-- Ve al repositorio en GitHub.
+📞 Teléfono: +1 (809) 123-4567
 
-- Haz clic en Code → Download ZIP.
+📍 Ubicación: Calle Solidaridad #123, El Seibo, República Dominicana
 
-- Extrae el archivo ZIP en tu computadora.
+📄 Licencia
+© 2025 Fundación Solidaridad Seibana.
 
-- Abre el archivo:
-
-public/index.html
-
-
-- El sitio funcionará directamente en el navegador.
-
-Uso en Desarrollo (opcional)
-
-# Para una mejor experiencia durante el desarrollo se recomienda usar un servidor local como Live Server en VS Code:
-
-- Abre el proyecto en VS Code.
-
-- Instala la extensión Live Server.
-
-- Haz clic derecho en public/index.html.
-
-- Selecciona Open with Live Server.
-
-## Información de Contacto
-
-- **Email:** juanmanuelfebles@gmail.com  
-- **Teléfono:** +1 (809) 123-4567  
-- **Dirección:** Calle Solidaridad #123, Colonia Seibana, República Dominicana
-
-## Licencia
-
-© 2025 Fundación Solidaridad Seibana. Todos los derechos reservados.
-EOF
-
-
+Este proyecto fue desarrollado para impactar positivamente a la comunidad. Todos los derechos reservados.
