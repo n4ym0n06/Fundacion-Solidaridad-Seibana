@@ -1,7 +1,7 @@
 # 🏠 Fundación Solidaridad Seibana V1.0.1
 
 <p align="center">
-  <img src="src/assets/images/logo.png" alt="Logo Fundación" width="150">
+  <img src="public/assets/images/logo.png" alt="Logo Fundación" width="150">
   <br>
   <b>Construyendo hogares, transformando vidas.</b>
 </p>
